@@ -1,0 +1,300 @@
+:root {
+    /* Sampled from the Ticketbox logo gradient */
+    --brand-dark: #42b972;
+    --brand-light: #77c470;
+    --brand-gradient: linear-gradient(135deg, #42b972 0%, #77c470 100%);
+    --brand-deep: #2f8f55;
+    --brand-tint: #eef8f1;
+    --brand-border: #d6ecdf;
+    --surface: #f2f8f4;
+    --surface-soft: #f7fcf9;
+
+    /* Neutrals pulled toward the brand hue so the whole UI reads as one family */
+    --text: #1f3a2b;
+    --text-muted: #5b7a68;
+    --text-faint: #8aa596;
+
+    /* Expired / destructive states: desaturated brand-compatible clay */
+    --danger: #c2705a;
+    --danger-strong: #a85942;
+    --danger-tint: #fdf4f1;
+    --danger-border: #f0d6cc;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    width: 340px;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    background: var(--surface);
+    color: var(--text);
+    padding: 10px;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    background: #ffffff;
+    border: 1px solid var(--brand-border);
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 8px 24px rgba(32, 92, 58, 0.10);
+}
+
+.header {
+    background: var(--brand-gradient);
+    color: white;
+    text-align: left;
+    padding: 14px 14px 12px;
+}
+
+.header h1 {
+    font-size: 14px;
+    font-weight: 700;
+}
+
+.subtitle {
+    margin-top: 4px;
+    font-size: 11px;
+    opacity: 0.9;
+}
+
+.content {
+    padding: 12px;
+    background: white;
+}
+
+.api-section {
+    margin-bottom: 12px;
+}
+
+.field-label {
+    display: block;
+    margin-bottom: 6px;
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--text);
+}
+
+.input {
+    width: 100%;
+    padding: 10px 12px;
+    border: 1px solid var(--brand-border);
+    border-radius: 8px;
+    font-size: 13px;
+    font-family: monospace;
+    transition: border-color 0.2s;
+    background: var(--surface-soft);
+}
+
+.input:focus {
+    outline: none;
+    border-color: var(--brand-dark);
+    background: white;
+    box-shadow: 0 0 0 3px rgba(66, 185, 114, 0.18);
+}
+
+.balance-section {
+    margin-top: 8px;
+    padding: 10px;
+    border: 1px solid var(--brand-border);
+    border-radius: 8px;
+    background: var(--surface-soft);
+}
+
+.balance-row {
+    display: flex;
+    align-items: center;
+}
+
+.balance-section.hidden {
+    display: none;
+}
+
+.balance-amount {
+    margin-left: auto;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--brand-dark);
+}
+
+.error-message {
+    margin-top: 8px;
+    padding: 8px 10px;
+    background: var(--danger-tint);
+    border: 1px solid var(--danger-border);
+    border-radius: 8px;
+    color: var(--danger-strong);
+    font-size: 12px;
+}
+
+.error-message.hidden {
+    display: none;
+}
+
+.section-title {
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--text-muted);
+    margin-bottom: 8px;
+}
+
+.token-list {
+    max-height: 220px;
+    overflow-y: auto;
+    margin-bottom: 10px;
+    padding-right: 2px;
+}
+
+.no-tokens {
+    text-align: center;
+    padding: 15px;
+    color: var(--text-faint);
+    font-size: 12px;
+}
+
+.token-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 9px 10px;
+    margin-bottom: 6px;
+    background: var(--surface-soft);
+    border-radius: 8px;
+    border: 1px solid var(--brand-border);
+    transition: all 0.2s ease;
+}
+
+.token-item:hover {
+    background: var(--brand-tint);
+    border-color: var(--brand-dark);
+}
+
+.token-info {
+    flex: 1;
+}
+
+.token-id {
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--text);
+    margin-bottom: 3px;
+}
+
+.token-details {
+    display: flex;
+    flex-direction: column;
+    gap: 1px;
+}
+
+.token-time {
+    font-size: 9px;
+    color: var(--text-muted);
+}
+
+.expired-text {
+    color: var(--danger);
+    font-weight: 600;
+}
+
+.token-item.expired {
+    background: var(--danger-tint);
+    border-color: var(--danger-border);
+}
+
+.token-item.expired:hover {
+    background: #fbeae4;
+    border-color: var(--danger);
+}
+
+.btn-delete {
+    width: 24px;
+    height: 24px;
+    min-width: 24px;
+    min-height: 24px;
+    border: none;
+    background: var(--danger);
+    color: white;
+    border-radius: 4px;
+    font-size: 16px;
+    line-height: 24px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    flex-shrink: 0;
+}
+
+.btn-delete:hover {
+    background: var(--danger-strong);
+    transform: scale(1.1);
+}
+
+.btn-delete:active {
+    transform: scale(0.95);
+}
+
+.btn {
+    width: 100%;
+    padding: 9px 12px;
+    border: none;
+    border-radius: 8px;
+    font-size: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+/* Outlined so the brand green stays the dominant colour in the popup. */
+.btn-danger {
+    background: transparent;
+    color: var(--danger-strong);
+    border: 1px solid var(--danger-border);
+}
+
+.btn-danger:hover {
+    background: var(--danger);
+    border-color: var(--danger);
+    color: white;
+    box-shadow: 0 4px 12px rgba(168, 89, 66, 0.22);
+}
+
+.btn-danger:active {
+    transform: scale(0.98);
+}
+
+.empty-hint {
+    padding: 30px 20px;
+    color: var(--brand-deep);
+}
+
+/* Attribution strip pinned to the bottom of the card. */
+.watermark {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 7px;
+    padding: 9px 12px;
+    border-top: 1px solid var(--brand-border);
+    background: var(--surface-soft);
+    color: var(--text-muted);
+    text-decoration: none;
+    font-size: 11px;
+    font-weight: 600;
+    transition: background 0.15s, color 0.15s;
+}
+
+.watermark:hover {
+    background: var(--brand-tint);
+    color: var(--brand-deep);
+}
+
+.watermark svg {
+    flex-shrink: 0;
+}

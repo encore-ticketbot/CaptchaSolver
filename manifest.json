@@ -1,0 +1,60 @@
+{
+  "manifest_version": 3,
+  "name": "ENCORE Captcha Solver",
+  "version": "1.0.14",
+  "description": "Automatically solves CAPTCHAs on ticketbox.vn",
+  "author": "Übermensch",
+  "icons": {
+    "16": "icons/icon16.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  },
+  "permissions": [
+    "storage",
+    "scripting"
+  ],
+  "host_permissions": [
+    "https://*.ticketbox.vn/*",
+    "https://ticketbox.vn/*",
+    "https://auth.encorebot.cloud/*",
+    "https://solver.encorebot.cloud/*"
+  ],
+  "content_scripts": [
+    {
+      "matches": [
+        "https://*.ticketbox.vn/*",
+        "https://ticketbox.vn/*"
+      ],
+      "js": [
+        "inject-credentials.js"
+      ],
+      "run_at": "document_start",
+      "world": "ISOLATED",
+      "all_frames": false
+    },
+    {
+      "matches": [
+        "https://*.ticketbox.vn/*",
+        "https://ticketbox.vn/*"
+      ],
+      "js": [
+        "content.js"
+      ],
+      "run_at": "document_start",
+      "world": "MAIN",
+      "all_frames": false
+    }
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "ENCORE Captcha Solver",
+    "default_icon": {
+      "16": "icons/icon16.png",
+      "48": "icons/icon48.png",
+      "128": "icons/icon128.png"
+    }
+  }
+}
